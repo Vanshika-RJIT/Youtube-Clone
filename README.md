@@ -486,6 +486,6 @@ _Feel free to reach out for collaborations or questions!_
 
 If you like this project, please consider giving it a ⭐ on GitHub!
 
-[![GitHub stars](https://img.shields.io/github/stars/vanshikasikarwar/Youtube-Clone?style=social)](https://github.com/Vanshika-RJIT/Youtube-Clone)
+[![GitHub stars](https://img.shields.io/github/stars/Vanshika-RJIT/Youtube-Clone?style=social)](https://github.com/Vanshika-RJIT/Youtube-Clone)
 
 ---
