@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { 
   FiX, FiCopy, FiCheck,
-  FiFacebook, FiTwitter, FiMail, FiMessageCircle
+  FiFacebook, FiTwitter, FiMail
 } from "react-icons/fi";
 import { FaWhatsapp, FaReddit, FaTelegram } from "react-icons/fa";
 

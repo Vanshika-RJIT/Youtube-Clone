@@ -48,15 +48,8 @@
 /* Smooth image loading */
 img {
   transition: opacity 0.3s ease;
-}
-
-img[loading="lazy"] {
-  opacity: 0;
-}
-
-img.loaded,
-img:not([loading="lazy"]) {
   opacity: 1;
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* Video thumbnail hover effect */
@@ -89,11 +82,14 @@ img:not([loading="lazy"]) {
 }
 
 /* Custom focus styles */
-button:focus-visible,
 input:focus-visible,
 a:focus-visible {
   outline: 2px solid #1c62b9;
   outline-offset: 2px;
+}
+
+button:focus-visible {
+  outline: none;
 }
 
 /* Transition utilities */

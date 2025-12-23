@@ -215,11 +215,13 @@ export function SearchResultSkeleton() {
   );
 }
 
-export default {
+const SkeletonLoaders = {
   VideoCardSkeleton,
   FeedSkeleton,
   RelatedVideoSkeleton,
   VideoDetailsSkeleton,
   SearchResultSkeleton,
 };
+
+export default SkeletonLoaders;
 

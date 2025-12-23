@@ -12,10 +12,12 @@ import MobileNav from "./components/MobileNav";
 import MiniPlayer from "./components/MiniPlayer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setDarkMode } from "./redux/darkModeSlice";
 
 function App() {
   const { darkMode } = useSelector((state) => state.darkMode);
+  const dispatch = useDispatch();
 
   // Add keyboard shortcuts
   useEffect(() => {
@@ -27,13 +29,16 @@ function App() {
         case '/':
           e.preventDefault();
           const searchInput = document.querySelector('input[type="text"]');
-          if (searchInput) searchInput.focus();
+          if (searchInput) {
+            searchInput.focus();
+            searchInput.select(); // Also select any existing text
+          }
           break;
         case 't':
+        case 'T':
           if (!e.ctrlKey && !e.metaKey) {
-            document.body.setAttribute('data-theme', 
-              document.body.getAttribute('data-theme') === 'dark' ? '' : 'dark'
-            );
+            e.preventDefault();
+            dispatch(setDarkMode()); // Toggle dark mode via Redux
           }
           break;
         default:
@@ -43,7 +48,7 @@ function App() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [dispatch]);
 
   return (
     <Router>

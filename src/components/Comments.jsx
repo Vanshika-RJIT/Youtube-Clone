@@ -163,7 +163,6 @@ function Comment({ comment, isReply = false, darkMode }) {
 function Comments({ videoId }) {
   const { darkMode } = useSelector((state) => state.darkMode);
   const [commentText, setCommentText] = useState("");
-  const [sortBy, setSortBy] = useState("top");
   const [comments, setComments] = useState(mockComments);
 
   const handleAddComment = () => {

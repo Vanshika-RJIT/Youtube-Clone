@@ -4,7 +4,6 @@ import { TiCodeOutline, TiCode } from "react-icons/ti";
 import { IoFastFoodSharp, IoFastFoodOutline, IoSkullSharp, IoSkullOutline } from "react-icons/io5";
 import { AiOutlineHome, AiFillHome } from "react-icons/ai";
 import { MdOutlineSportsCricket, MdSportsCricket, MdOutlineVideoLibrary, MdVideoLibrary } from "react-icons/md";
-import { FiTrendingUp, FiClock, FiThumbsUp } from "react-icons/fi";
 import { HiOutlineFire, HiFire } from "react-icons/hi";
 
 const iconStyle = { height: "24px", width: "24px" };

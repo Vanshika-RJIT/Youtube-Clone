@@ -26,7 +26,6 @@ function VideoCard({
   const [imageLoaded, setImageLoaded] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
-  const hoverTimeoutRef = useRef(null);
   const previewTimeoutRef = useRef(null);
 
   const isInWatchLater = watchLater.some(v => v.videoId === videoId);

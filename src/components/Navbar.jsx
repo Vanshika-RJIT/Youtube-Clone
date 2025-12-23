@@ -56,7 +56,7 @@ function Navbar({ sidebarExtended, setSidebarExtended }) {
               dispatch(setSidebarExtendedValue(!sidebarExtended));
               setSidebarExtended(!sidebarExtended);
             }}
-            className={`p-2.5 rounded-full transition-colors hover:bg-opacity-10 ${darkMode ? "hover:bg-white" : "hover:bg-black"
+            className={`p-2.5 rounded-full transition-colors hover:bg-opacity-10 focus:outline-none ${darkMode ? "hover:bg-white" : "hover:bg-black"
               }`}
             aria-label="Toggle sidebar"
           >
@@ -70,11 +70,12 @@ function Navbar({ sidebarExtended, setSidebarExtended }) {
             </svg>
           </button>
 
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center focus:outline-none bg-transparent">
             <img
-              className={darkMode ? "h-6 md:h-7" : "w-24 md:w-28"}
+              className={`${darkMode ? "h-6 md:h-7" : "w-24 md:w-28"} bg-transparent`}
               src={darkMode ? logoDark : logo}
               alt="YouTube"
+              style={{ display: 'block', backgroundColor: 'transparent' }}
             />
           </Link>
         </div>
@@ -83,7 +84,9 @@ function Navbar({ sidebarExtended, setSidebarExtended }) {
         <div className="flex-1 flex justify-center max-w-2xl mx-2 md:mx-8">
           <form onSubmit={handleOnSubmit} className="flex items-center w-full max-w-xl">
             <div className={`flex-1 flex items-center border rounded-l-full transition-all duration-200 ${isSearchFocused
-                ? "border-blue-500 shadow-inner"
+                ? darkMode 
+                  ? "border-white/30" 
+                  : "border-gray-400"
                 : darkMode
                   ? "border-gray-600"
                   : "border-gray-300"
@@ -98,13 +101,13 @@ function Navbar({ sidebarExtended, setSidebarExtended }) {
                 onFocus={() => setIsSearchFocused(true)}
                 onBlur={() => setIsSearchFocused(false)}
                 placeholder="Search"
-                className={`w-full py-2.5 px-4 bg-transparent outline-none text-base ${darkMode ? "text-white placeholder-gray-500" : "text-gray-900 placeholder-gray-500"
+                className={`w-full py-2.5 px-4 bg-transparent outline-none focus:outline-none text-base ${darkMode ? "text-white placeholder-gray-500" : "text-gray-900 placeholder-gray-500"
                   }`}
               />
             </div>
             <button
               type="submit"
-              className={`px-5 md:px-6 py-2.5 border border-l-0 rounded-r-full transition-colors ${darkMode
+              className={`px-5 md:px-6 py-2.5 border border-l-0 rounded-r-full transition-colors focus:outline-none ${darkMode
                   ? "bg-dark-tertiary border-gray-600 hover:bg-dark-hover"
                   : "bg-gray-100 border-gray-300 hover:bg-gray-200"
                 }`}
@@ -114,7 +117,7 @@ function Navbar({ sidebarExtended, setSidebarExtended }) {
             </button>
             <button
               type="button"
-              className={`ml-2 md:ml-3 p-2.5 md:p-3 rounded-full transition-colors hidden sm:flex ${darkMode
+              className={`ml-2 md:ml-3 p-2.5 md:p-3 rounded-full transition-colors hidden sm:flex focus:outline-none ${darkMode
                   ? "bg-dark-tertiary hover:bg-dark-hover"
                   : "bg-gray-100 hover:bg-gray-200"
                 }`}
@@ -129,7 +132,7 @@ function Navbar({ sidebarExtended, setSidebarExtended }) {
         <div className="flex items-center gap-2">
           <button
             onClick={() => dispatch(setDarkMode())}
-            className={`p-2.5 md:p-3 rounded-full transition-all duration-300 ${darkMode
+            className={`p-2.5 md:p-3 rounded-full transition-all duration-300 focus:outline-none ${darkMode
                 ? "bg-dark-tertiary hover:bg-dark-hover text-yellow-400"
                 : "bg-gray-100 hover:bg-gray-200 text-gray-700"
               }`}

@@ -19,7 +19,7 @@ function Feed() {
       )
     );
     document.title = `${id ? id + "- Youtube" : "Home - Youtube"}`;
-  }, [id]);
+  }, [id, dispatch]);
 
   useEffect(() => {
     document.body.style.backgroundColor = darkMode ? "#131417" : "#fff";
@@ -34,9 +34,9 @@ function Feed() {
         }`}
       ></div>
       <div
-        className={`pl-0  ${
-          sidebarExtend ? "sm:pl-[180px]" : "sm:pl-[70px]"
-        } feedGrid grid sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-x-[4%] pt-20 mx-3 sm:ml-4 md:pr-[28px] lg:pr-14 gap-y-6 max-w-[100%] bg-contain `}
+        className={`transition-all duration-300 ${
+          sidebarExtend ? "sm:ml-60" : "sm:ml-[72px]"
+        } feedGrid grid sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4 pt-20 px-4 md:px-6 pb-6`}
       >
         {categoryVideos?.map((e, index) => {
           return (

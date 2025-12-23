@@ -6,6 +6,13 @@ import { FeedSkeleton } from "../components/SkeletonLoader";
 import timeSince from "../utils/date";
 import { FiTrendingUp, FiMusic, FiFilm, FiZap } from "react-icons/fi";
 
+const tabs = [
+  { id: "now", label: "Now", icon: <FiTrendingUp />, query: "trending" },
+  { id: "music", label: "Music", icon: <FiMusic />, query: "trending music" },
+  { id: "gaming", label: "Gaming", icon: <FiZap />, query: "trending gaming" },
+  { id: "movies", label: "Movies", icon: <FiFilm />, query: "trending movies trailers" },
+];
+
 function Trending() {
   const dispatch = useDispatch();
   const pageRoute = useNavigate();
@@ -13,13 +20,6 @@ function Trending() {
   const { sidebarExtend } = useSelector((state) => state.category);
   const { darkMode } = useSelector((state) => state.darkMode);
   const [activeTab, setActiveTab] = useState("now");
-
-  const tabs = [
-    { id: "now", label: "Now", icon: <FiTrendingUp />, query: "trending" },
-    { id: "music", label: "Music", icon: <FiMusic />, query: "trending music" },
-    { id: "gaming", label: "Gaming", icon: <FiZap />, query: "trending gaming" },
-    { id: "movies", label: "Movies", icon: <FiFilm />, query: "trending movies trailers" },
-  ];
 
   useEffect(() => {
     const currentTab = tabs.find(t => t.id === activeTab);

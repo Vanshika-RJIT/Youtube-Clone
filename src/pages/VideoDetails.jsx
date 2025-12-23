@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getVideoDetails, getRelatedVideos } from "../redux/videoSlice";
 import { addToHistory, toggleLikeVideo, addToWatchLater, toggleSubscription } from "../redux/userSlice";
 import ReactPlayer from "react-player";
-import { FiThumbsUp, FiThumbsDown, FiShare2, FiDownload, FiMoreHorizontal, FiClock, FiBell, FiCheck } from "react-icons/fi";
+import { FiThumbsUp, FiThumbsDown, FiShare2, FiMoreHorizontal, FiClock, FiBell, FiCheck } from "react-icons/fi";
 import timeSince from "../utils/date";
 import convertToInternationalCurrencySystem from "../utils/convert";
 import { VideoDetailsSkeleton, RelatedVideoSkeleton } from "../components/SkeletonLoader";
@@ -69,9 +69,29 @@ function VideoDetails() {
 
   useEffect(() => {
     dispatch(getVideoDetails(`videos?part=snippet,statistics&id=${id}`));
-    dispatch(getRelatedVideos(`search?part=snippet&relatedToVideoId=${id}&type=video`));
     window.scrollTo(0, 0);
   }, [id, dispatch]);
+
+  // Fetch related videos after video details are loaded
+  useEffect(() => {
+    if (videoDetails?.snippet) {
+      // Extract keywords from title for better related videos
+      const title = videoDetails.snippet.title;
+      const keywords = title
+        .replace(/[^\w\s]/g, '') // Remove special characters
+        .split(' ')
+        .filter(word => word.length > 3) // Filter short words
+        .slice(0, 3) // Take first 3 meaningful words
+        .join(' ');
+      
+      // Fallback to channel videos if no good keywords
+      const searchQuery = keywords 
+        ? `search?part=snippet&q=${encodeURIComponent(keywords)}&type=video&maxResults=20`
+        : `search?part=snippet&channelId=${videoDetails.snippet.channelId}&type=video&maxResults=20&order=date`;
+      
+      dispatch(getRelatedVideos(searchQuery));
+    }
+  }, [videoDetails?.snippet, dispatch]);
 
   // Add to watch history when video details load
   useEffect(() => {
