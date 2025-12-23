@@ -344,10 +344,10 @@ docker run -p 3000:3000 youtube-clone
 
 Enhance your browsing experience with these shortcuts:
 
-| Key | Action                 | Description                           |
-| --- | ---------------------- | ------------------------------------- |
-| `/` | Focus search bar       | Quickly start searching for videos    |
-| `t` | Toggle dark/light mode | Switch between themes instantly       |
+| Key | Action                 | Description                        |
+| --- | ---------------------- | ---------------------------------- |
+| `/` | Focus search bar       | Quickly start searching for videos |
+| `t` | Toggle dark/light mode | Switch between themes instantly    |
 
 > 💡 **Note:** Shortcuts work on all pages except when typing in input fields
 
@@ -486,6 +486,6 @@ _Feel free to reach out for collaborations or questions!_
 
 If you like this project, please consider giving it a ⭐ on GitHub!
 
-[![GitHub stars](https://img.shields.io/github/stars/vanshikasikarwar/Youtube-Clone?style=social)](https://github.com/vanshikasikarwar/Youtube-Clone)
+[![GitHub stars](https://img.shields.io/github/stars/vanshikasikarwar/Youtube-Clone?style=social)](https://github.com/Vanshika-RJIT/Youtube-Clone)
 
 ---
